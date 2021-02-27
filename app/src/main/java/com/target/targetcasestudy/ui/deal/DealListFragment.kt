@@ -1,4 +1,4 @@
-package com.target.targetcasestudy.ui
+package com.target.targetcasestudy.ui.deal
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.target.targetcasestudy.R
+import com.target.targetcasestudy.ui.deal.DealItemAdapter
 
 
-class DealListFragment : Fragment() {
+class DealListFragment : Fragment(), IDealListView {
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
