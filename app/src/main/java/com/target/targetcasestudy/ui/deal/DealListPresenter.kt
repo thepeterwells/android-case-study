@@ -1,4 +1,9 @@
 package com.target.targetcasestudy.ui.deal
 
-class DealListPresenter(private val view: IDealListView) {
+import javax.inject.Inject
+
+class DealListPresenter @Inject constructor() {
+    fun start(view: IDealListView) {
+        view.bindDealsData()
+    }
 }

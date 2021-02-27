@@ -10,19 +10,26 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.target.targetcasestudy.R
 import com.target.targetcasestudy.ui.deal.DealItemAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import javax.inject.Singleton
 
-
+@AndroidEntryPoint
 class DealListFragment : Fragment(), IDealListView {
 
-  override fun onCreateView(
-    inflater: LayoutInflater, container: ViewGroup?,
-    savedInstanceState: Bundle?
-  ): View? {
-    val view =  inflater.inflate(R.layout.fragment_deal_list, container, false)
+  @Inject lateinit var presenter: DealListPresenter
 
-    view.findViewById<RecyclerView>(R.id.recycler_view).layoutManager = LinearLayoutManager(requireContext())
-    view.findViewById<RecyclerView>(R.id.recycler_view).adapter = DealItemAdapter()
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    return inflater.inflate(R.layout.fragment_deal_list, container, false)
+  }
 
-    return view
+  override fun onStart() {
+    super.onStart()
+    presenter.start(this)
+  }
+
+  override fun bindDealsData() {
+    view?.findViewById<RecyclerView>(R.id.recycler_view)?.layoutManager = LinearLayoutManager(requireContext())
+    view?.findViewById<RecyclerView>(R.id.recycler_view)?.adapter = DealItemAdapter()
   }
 }
