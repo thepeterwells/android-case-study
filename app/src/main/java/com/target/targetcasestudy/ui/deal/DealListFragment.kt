@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.target.targetcasestudy.R
+import com.target.targetcasestudy.databinding.FragmentDealListBinding
 import com.target.targetcasestudy.ui.deal.DealItemAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -18,9 +19,12 @@ import javax.inject.Singleton
 class DealListFragment : Fragment(), IDealListView {
 
   @Inject lateinit var presenter: DealListPresenter
+  private var _binding: FragmentDealListBinding? = null
+  private val binding get() = _binding!!
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-    return inflater.inflate(R.layout.fragment_deal_list, container, false)
+    _binding = FragmentDealListBinding.inflate(inflater, container, false)
+    return binding.root
   }
 
   override fun onStart() {
@@ -29,7 +33,7 @@ class DealListFragment : Fragment(), IDealListView {
   }
 
   override fun bindDealsData() {
-    view?.findViewById<RecyclerView>(R.id.recycler_view)?.layoutManager = LinearLayoutManager(requireContext())
-    view?.findViewById<RecyclerView>(R.id.recycler_view)?.adapter = DealItemAdapter()
+    binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+    binding.recyclerView.adapter = DealItemAdapter()
   }
 }
