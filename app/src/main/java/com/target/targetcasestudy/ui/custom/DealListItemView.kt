@@ -5,10 +5,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import com.target.targetcasestudy.R
-import com.target.targetcasestudy.data.DealItem
+import com.target.targetcasestudy.data.Deal
 import com.target.targetcasestudy.databinding.DealListItemViewBinding
-import com.target.targetcasestudy.databinding.FragmentDealListBinding
 
 class DealListItemView constructor(context: Context,
                                    attrs: AttributeSet? = null,
@@ -23,9 +21,9 @@ class DealListItemView constructor(context: Context,
         binding = DealListItemViewBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
-    fun setup(data: DealItem) {
+    fun setup(data: Deal) {
         binding.tvProductName.text = data.title
-        binding.tvPrice.text = data.price
+        binding.tvPrice.text = data.regularPrice?.displayString ?: "Unknown"
     }
 
 }
