@@ -54,10 +54,9 @@ class PaymentDialogFragment : DialogFragment() {
       }
 
       override fun afterTextChanged(p0: Editable?) {
-        validateCreditCard(p0?.toString() ?: "")
+        submitButton.isEnabled = validateCreditCard(p0?.toString() ?: "")
       }
     })
-    // TODO enable the submit button based on card number validity using Validators.validateCreditCard()
 
     return root
   }
