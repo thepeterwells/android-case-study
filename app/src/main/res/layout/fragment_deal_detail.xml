@@ -35,7 +35,7 @@
           android:layout_height="wrap_content"
           android:layout_marginTop="16dp"
           android:layout_marginStart="16dp"
-          android:textSize="28sp"
+          android:textSize="36sp"
           android:textColor="@color/red_color"
           android:textStyle="bold"
           app:layout_constraintStart_toStartOf="parent"
@@ -48,8 +48,10 @@
           android:layout_height="wrap_content"
           android:layout_marginEnd="16dp"
           android:textSize="24sp"
+          android:textColor="@color/gray_400"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintBottom_toBottomOf="@+id/tv_sale_price"
+          app:layout_constraintTop_toTopOf="@+id/tv_sale_price"
           tools:text="Reg: $17.99"/>
 
       <TextView

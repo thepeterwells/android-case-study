@@ -2,9 +2,11 @@ package com.target.targetcasestudy.ui.deal.detail
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -61,7 +63,7 @@ class DealDetailFragment(private val dealId: Int) : Fragment(), IDealDetailView 
     Glide.with(this).load(deal.imageUrl).into(binding.ivProduct)
     binding.tvSalePrice.text = deal.salePrice?.displayString ?: deal.regularPrice.displayString
     binding.tvRegularPrice.setVisible(deal.salePrice != null)
-    binding.tvRegularPrice.text = deal.regularPrice.displayString
+    binding.tvRegularPrice.text = HtmlCompat.fromHtml(getString(R.string.regular_price_format, deal.regularPrice.displayString), HtmlCompat.FROM_HTML_MODE_COMPACT)
     binding.tvProductName.text = deal.title
     binding.tvProductDescription.text = deal.description
   }
