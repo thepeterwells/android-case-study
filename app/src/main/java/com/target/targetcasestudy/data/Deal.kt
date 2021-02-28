@@ -6,5 +6,6 @@ data class Deal(
   var aisle: String,
   var description: String,
   var imageUrl: String,
-  var regularPrice: Price
+  var regularPrice: Price,
+  var salePrice: Price?
 )
