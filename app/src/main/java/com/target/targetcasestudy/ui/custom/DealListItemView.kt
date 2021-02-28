@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import com.bumptech.glide.Glide
 import com.target.targetcasestudy.data.Deal
 import com.target.targetcasestudy.databinding.DealListItemViewBinding
 
@@ -23,7 +24,9 @@ class DealListItemView constructor(context: Context,
 
     fun setup(data: Deal) {
         binding.tvProductName.text = data.title
-        binding.tvPrice.text = data.regularPrice?.displayString ?: "Unknown"
+        binding.tvPrice.text = data.regularPrice.displayString
+        binding.tvAisle.text = data.aisle.toUpperCase()
+        Glide.with(this).load(data.imageUrl).into(binding.ivProduct)
     }
 
 }
