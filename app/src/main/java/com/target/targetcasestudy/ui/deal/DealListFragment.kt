@@ -28,18 +28,14 @@ class DealListFragment : Fragment(), IDealListView {
     private var _binding: FragmentDealListBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-      inflater: LayoutInflater,
-      container: ViewGroup?,
-      savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentDealListBinding.inflate(inflater, container, false)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.addItemDecoration(
-          DividerItemDecoration(
-            requireContext(),
-            RecyclerView.VERTICAL
-          )
+            DividerItemDecoration(
+                requireContext(),
+                RecyclerView.VERTICAL
+            )
         )
         return binding.root
     }

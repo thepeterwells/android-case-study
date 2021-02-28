@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.DialogFragment
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.target.targetcasestudy.R
 import com.target.targetcasestudy.data.validateCreditCard
+import com.target.targetcasestudy.databinding.DialogPaymentBinding
 
 /**
  * Dialog that displays a minimal credit card entry form.
@@ -24,27 +27,22 @@ import com.target.targetcasestudy.data.validateCreditCard
  * You do not need to make any changes to the layout of this screen (though you are welcome to do
  * so if you wish).
  */
-class PaymentDialogFragment : DialogFragment() {
+class PaymentDialogFragment : BottomSheetDialogFragment() {
 
-    private lateinit var submitButton: Button
-    private lateinit var creditCardInput: EditText
+    private var _binding: DialogPaymentBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val root = inflater.inflate(R.layout.dialog_payment, container, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.Widget_AppTheme_BottomSheetDialogFragment)
+    }
 
-        submitButton = root.findViewById(R.id.submit)
-        creditCardInput = root.findViewById(R.id.card_number)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _binding = DialogPaymentBinding.inflate(inflater, container, false)
 
-        val cancelButton: Button = root.findViewById(R.id.cancel)
+        binding.btnSubmit.setOnClickListener { dismiss() }
 
-        cancelButton.setOnClickListener { dismiss() }
-        submitButton.setOnClickListener { dismiss() }
-
-        creditCardInput.addTextChangedListener(object : TextWatcher {
+        binding.etCardNumber.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 //no-op
             }
@@ -54,11 +52,18 @@ class PaymentDialogFragment : DialogFragment() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                submitButton.isEnabled = validateCreditCard(p0?.toString() ?: "")
+                binding.btnSubmit.isEnabled = validateCreditCard(p0?.toString() ?: "")
             }
         })
 
-        return root
+        return binding.root
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+
 
 }

@@ -21,4 +21,10 @@
         <item name="cornerRadius">0dp</item>
     </style>
 
+    <style name="Widget.AppTheme.BottomSheetDialogFragment" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
 </resources>
