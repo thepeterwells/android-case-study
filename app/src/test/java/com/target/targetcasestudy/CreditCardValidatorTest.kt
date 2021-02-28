@@ -16,4 +16,20 @@ class CreditCardValidatorTest {
       validateCreditCard("4539976741512043")
     )
   }
+
+  @Test
+  fun `is credit card number invalid`() {
+    Assert.assertFalse(
+      "invalid credit card number should yield false",
+      validateCreditCard("4539976741512046")
+    )
+    Assert.assertFalse(
+      "card number under 13 digits should yield false",
+      validateCreditCard("14325673")
+    )
+    Assert.assertFalse(
+      "card number over 19 digits should yield false",
+      validateCreditCard("849232848358374343564")
+    )
+  }
 }

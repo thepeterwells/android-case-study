@@ -1,6 +1,8 @@
 package com.target.targetcasestudy.ui.payment
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import com.target.targetcasestudy.R
+import com.target.targetcasestudy.data.validateCreditCard
 
 /**
  * Dialog that displays a minimal credit card entry form.
@@ -35,11 +38,25 @@ class PaymentDialogFragment : DialogFragment() {
 
     submitButton = root.findViewById(R.id.submit)
     creditCardInput = root.findViewById(R.id.card_number)
+
     val cancelButton: Button = root.findViewById(R.id.cancel)
 
     cancelButton.setOnClickListener { dismiss() }
     submitButton.setOnClickListener { dismiss() }
 
+    creditCardInput.addTextChangedListener(object : TextWatcher {
+      override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        //no-op
+      }
+
+      override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        //no-op
+      }
+
+      override fun afterTextChanged(p0: Editable?) {
+        validateCreditCard(p0?.toString() ?: "")
+      }
+    })
     // TODO enable the submit button based on card number validity using Validators.validateCreditCard()
 
     return root
