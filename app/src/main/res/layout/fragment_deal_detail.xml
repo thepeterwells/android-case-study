@@ -86,11 +86,36 @@
 
   </ScrollView>
 
-  <Button
-      android:id="@+id/btn_add_to_cart"
-      android:layout_width="match_parent"
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.5"/>
+
+  <com.google.android.material.button.MaterialButton
+      style="@style/Widget.AppTheme.DealButton"
+      android:id="@+id/btn_add_to_list"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="@string/add_to_list"
+      android:textColor="@color/text_color_primary"
+      app:backgroundTint="@color/light_gray_color"
+      app:rippleColor="@color/text_color_primary"
+      app:layout_constraintEnd_toStartOf="@+id/guideline"
       app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
+  <com.google.android.material.button.MaterialButton
+      style="@style/Widget.AppTheme.DealButton"
+      android:id="@+id/btn_add_to_cart"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="@string/add_to_cart"
+      android:textColor="@color/white_color"
+      app:backgroundTint="@color/red_color"
+      app:rippleColor="@color/white_color"
+      app:layout_constraintStart_toEndOf="@+id/guideline"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"/>
 
