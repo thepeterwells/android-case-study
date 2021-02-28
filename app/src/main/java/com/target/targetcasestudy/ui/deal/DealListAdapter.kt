@@ -3,9 +3,10 @@ package com.target.targetcasestudy.ui.deal
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.target.targetcasestudy.data.Deal
+import com.target.targetcasestudy.ui.custom.DealListItemListener
 import com.target.targetcasestudy.ui.custom.DealListItemView
 
-class DealItemAdapter : RecyclerView.Adapter<DealItemViewHolder>() {
+class DealItemAdapter(private val listener: DealListItemListener) : RecyclerView.Adapter<DealItemViewHolder>() {
 
   private var dataItems = ArrayList<Deal>()
 
@@ -16,7 +17,7 @@ class DealItemAdapter : RecyclerView.Adapter<DealItemViewHolder>() {
   override fun getItemCount(): Int = dataItems.size
 
   override fun onBindViewHolder(viewHolder: DealItemViewHolder, position: Int) {
-    (viewHolder.itemView as DealListItemView).setup(dataItems[position])
+    (viewHolder.itemView as DealListItemView).setup(dataItems[position], listener)
   }
 
   fun setItems(data: List<Deal>) {

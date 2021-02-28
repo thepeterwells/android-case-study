@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.target.targetcasestudy.ui.deal.DealListFragment
+import com.target.targetcasestudy.ui.deal.detail.DealDetailFragment
 import com.target.targetcasestudy.ui.payment.PaymentDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -34,5 +35,13 @@ class MainActivity : AppCompatActivity() {
       }
       else -> false
     }
+  }
+
+  fun toDealDetail(dealId: Int) {
+    val detailFragment = DealDetailFragment(dealId)
+    supportFragmentManager.beginTransaction()
+      .add(R.id.container, detailFragment)
+      .addToBackStack(detailFragment.tag)
+      .commit()
   }
 }

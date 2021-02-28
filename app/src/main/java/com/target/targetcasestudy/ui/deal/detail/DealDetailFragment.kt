@@ -1,4 +1,4 @@
-package com.target.targetcasestudy.ui.deal.item
+package com.target.targetcasestudy.ui.deal.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.target.targetcasestudy.R
 
 
-class DealItemFragment : Fragment() {
+class DealDetailFragment(dealId: Int) : Fragment() {
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,

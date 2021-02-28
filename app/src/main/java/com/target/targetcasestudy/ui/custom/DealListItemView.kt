@@ -23,11 +23,12 @@ class DealListItemView constructor(context: Context,
         binding = DealListItemViewBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
-    fun setup(data: Deal) {
+    fun setup(data: Deal, listener: DealListItemListener) {
         binding.tvProductName.text = data.title
         binding.tvPrice.text = data.salePrice?.displayString ?: data.regularPrice.displayString
         binding.tvAisle.text = data.aisle.toUpperCase(Locale.getDefault())
         Glide.with(this).load(data.imageUrl).into(binding.ivProduct)
+        setOnClickListener { listener.onDealClicked(data.id) }
     }
 
 }
