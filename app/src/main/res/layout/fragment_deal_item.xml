@@ -1,13 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  tools:context=".ui.deal.detail.DealDetailFragment">
-
-  <TextView
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:text="@string/hello_blank_fragment" />
+    android:background="@color/white_color"
+    tools:context=".ui.deal.detail.DealDetailFragment">
 
-</FrameLayout>
+  <ScrollView
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/btn_add_to_cart">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+      <ImageView
+          android:id="@+id/iv_product"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:src="@drawable/ic_launcher_background"/>
+
+      <TextView
+          android:id="@+id/tv_sale_price"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:layout_marginStart="16dp"
+          android:textSize="28sp"
+          android:textColor="@color/red_color"
+          android:textStyle="bold"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/iv_product"
+          tools:text="$8.98"/>
+
+      <TextView
+          android:id="@+id/tv_regular_price"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="16dp"
+          android:textSize="24sp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintBottom_toBottomOf="@+id/tv_sale_price"
+          tools:text="Reg: $17.99"/>
+
+      <TextView
+          android:id="@+id/tv_product_name"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="16dp"
+          android:textColor="@color/text_color_primary"
+          android:textSize="24sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_sale_price"
+          tools:text="Some product name" />
+
+      <TextView
+          android:id="@+id/tv_product_description"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="16dp"
+          android:textColor="@color/text_color_secondary"
+          android:textSize="16sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
+          tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec nisi rutrum, tempor ipsum eget, blandit arcu. Quisque interdum non enim non congue. In ac dolor porta lectus volutpat fermentum ac eu felis. Sed egestas tempus sapien nec feugiat. Cras finibus orci vel ligula pharetra porta. In arcu erat, sagittis eget ipsum vel, auctor sagittis eros. Aenean vel cursus quam. Nulla cursus pretium purus sit amet venenatis. Maecenas dictum cursus varius. Cras mollis magna eget mauris accumsan aliquet. Donec ipsum ipsum, bibendum imperdiet ultricies sit amet, consectetur sed nisi. Donec vitae finibus ex." />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </ScrollView>
+
+  <Button
+      android:id="@+id/btn_add_to_cart"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
