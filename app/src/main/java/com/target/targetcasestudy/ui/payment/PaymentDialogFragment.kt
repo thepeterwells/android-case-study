@@ -26,39 +26,39 @@ import com.target.targetcasestudy.data.validateCreditCard
  */
 class PaymentDialogFragment : DialogFragment() {
 
-  private lateinit var submitButton: Button
-  private lateinit var creditCardInput: EditText
+    private lateinit var submitButton: Button
+    private lateinit var creditCardInput: EditText
 
-  override fun onCreateView(
-    inflater: LayoutInflater,
-    container: ViewGroup?,
-    savedInstanceState: Bundle?
-  ): View? {
-    val root = inflater.inflate(R.layout.dialog_payment, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val root = inflater.inflate(R.layout.dialog_payment, container, false)
 
-    submitButton = root.findViewById(R.id.submit)
-    creditCardInput = root.findViewById(R.id.card_number)
+        submitButton = root.findViewById(R.id.submit)
+        creditCardInput = root.findViewById(R.id.card_number)
 
-    val cancelButton: Button = root.findViewById(R.id.cancel)
+        val cancelButton: Button = root.findViewById(R.id.cancel)
 
-    cancelButton.setOnClickListener { dismiss() }
-    submitButton.setOnClickListener { dismiss() }
+        cancelButton.setOnClickListener { dismiss() }
+        submitButton.setOnClickListener { dismiss() }
 
-    creditCardInput.addTextChangedListener(object : TextWatcher {
-      override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        //no-op
-      }
+        creditCardInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //no-op
+            }
 
-      override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        //no-op
-      }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //no-op
+            }
 
-      override fun afterTextChanged(p0: Editable?) {
-        submitButton.isEnabled = validateCreditCard(p0?.toString() ?: "")
-      }
-    })
+            override fun afterTextChanged(p0: Editable?) {
+                submitButton.isEnabled = validateCreditCard(p0?.toString() ?: "")
+            }
+        })
 
-    return root
-  }
+        return root
+    }
 
 }

@@ -22,20 +22,20 @@ package com.target.targetcasestudy.data
  * otherwise false
  */
 fun validateCreditCard(creditCardNumber: String): Boolean {
-  if (creditCardNumber.length < 13 || creditCardNumber.length > 19) {
-    return false
-  }
-  val digits = ArrayList<Int>()
-  creditCardNumber.forEach { digits.add(it.toString().toInt()) }
-  val lastDigit = digits.removeLast()
-  digits.reverse()
-  digits.indices.forEach {
-    if ((it + 1) % 2 == 1) {
-      digits[it] = digits[it] * 2
+    if (creditCardNumber.length < 13 || creditCardNumber.length > 19) {
+        return false
     }
-    if (digits[it] > 9) {
-      digits[it] = digits[it] - 9
+    val digits = ArrayList<Int>()
+    creditCardNumber.forEach { digits.add(it.toString().toInt()) }
+    val lastDigit = digits.removeLast()
+    digits.reverse()
+    digits.indices.forEach {
+        if ((it + 1) % 2 == 1) {
+            digits[it] = digits[it] * 2
+        }
+        if (digits[it] > 9) {
+            digits[it] = digits[it] - 9
+        }
     }
-  }
-  return digits.sum() % 10 == (10 - lastDigit)
+    return digits.sum() % 10 == (10 - lastDigit)
 }

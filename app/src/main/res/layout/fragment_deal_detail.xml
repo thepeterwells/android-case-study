@@ -7,126 +7,126 @@
     android:background="@color/white_color"
     tools:context=".ui.deal.detail.DealDetailFragment">
 
-  <ScrollView
-      android:id="@+id/scroll_view"
-      android:layout_width="0dp"
-      android:layout_height="0dp"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintBottom_toTopOf="@+id/btn_add_to_cart">
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add_to_cart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-      <ImageView
-          android:id="@+id/iv_product"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          tools:src="@drawable/ic_launcher_background"/>
+            <ImageView
+                android:id="@+id/iv_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_launcher_background" />
 
-      <TextView
-          android:id="@+id/tv_sale_price"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="16dp"
-          android:layout_marginStart="16dp"
-          android:textSize="36sp"
-          android:textColor="@color/red_color"
-          android:textStyle="bold"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/iv_product"
-          tools:text="$8.98"/>
+            <TextView
+                android:id="@+id/tv_sale_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/red_color"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_product"
+                tools:text="$8.98" />
 
-      <TextView
-          android:id="@+id/tv_regular_price"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginEnd="16dp"
-          android:textSize="24sp"
-          android:textColor="@color/gray_400"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintBottom_toBottomOf="@+id/tv_sale_price"
-          app:layout_constraintTop_toTopOf="@+id/tv_sale_price"
-          tools:text="Reg: $17.99"/>
+            <TextView
+                android:id="@+id/tv_regular_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/gray_400"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_sale_price"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_sale_price"
+                tools:text="Reg: $17.99" />
 
-      <TextView
-          android:id="@+id/tv_product_name"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="16dp"
-          android:layout_marginTop="16dp"
-          android:layout_marginEnd="16dp"
-          android:textColor="@color/text_color_primary"
-          android:textSize="24sp"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/tv_sale_price"
-          tools:text="Some product name" />
+            <TextView
+                android:id="@+id/tv_product_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/text_color_primary"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_sale_price"
+                tools:text="Some product name" />
 
-      <TextView
-          android:id="@+id/tv_product_description"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="16dp"
-          android:layout_marginTop="16dp"
-          android:layout_marginEnd="16dp"
-          android:textColor="@color/text_color_secondary"
-          android:textSize="16sp"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
-          tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec nisi rutrum, tempor ipsum eget, blandit arcu. Quisque interdum non enim non congue. In ac dolor porta lectus volutpat fermentum ac eu felis. Sed egestas tempus sapien nec feugiat. Cras finibus orci vel ligula pharetra porta. In arcu erat, sagittis eget ipsum vel, auctor sagittis eros. Aenean vel cursus quam. Nulla cursus pretium purus sit amet venenatis. Maecenas dictum cursus varius. Cras mollis magna eget mauris accumsan aliquet. Donec ipsum ipsum, bibendum imperdiet ultricies sit amet, consectetur sed nisi. Donec vitae finibus ex." />
+            <TextView
+                android:id="@+id/tv_product_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/text_color_secondary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec nisi rutrum, tempor ipsum eget, blandit arcu. Quisque interdum non enim non congue. In ac dolor porta lectus volutpat fermentum ac eu felis. Sed egestas tempus sapien nec feugiat. Cras finibus orci vel ligula pharetra porta. In arcu erat, sagittis eget ipsum vel, auctor sagittis eros. Aenean vel cursus quam. Nulla cursus pretium purus sit amet venenatis. Maecenas dictum cursus varius. Cras mollis magna eget mauris accumsan aliquet. Donec ipsum ipsum, bibendum imperdiet ultricies sit amet, consectetur sed nisi. Donec vitae finibus ex." />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-  </ScrollView>
+    </ScrollView>
 
-  <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      app:layout_constraintGuide_percent="0.5"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
-  <com.google.android.material.button.MaterialButton
-      style="@style/Widget.AppTheme.DealButton"
-      android:id="@+id/btn_add_to_list"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:text="@string/add_to_list"
-      android:textColor="@color/text_color_primary"
-      app:backgroundTint="@color/light_gray_color"
-      app:rippleColor="@color/text_color_primary"
-      app:layout_constraintEnd_toStartOf="@+id/guideline"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintBottom_toBottomOf="parent"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_to_list"
+        style="@style/Widget.AppTheme.DealButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_to_list"
+        android:textColor="@color/text_color_primary"
+        app:backgroundTint="@color/light_gray_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/text_color_primary" />
 
-  <com.google.android.material.button.MaterialButton
-      style="@style/Widget.AppTheme.DealButton"
-      android:id="@+id/btn_add_to_cart"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:text="@string/add_to_cart"
-      android:textColor="@color/white_color"
-      app:backgroundTint="@color/red_color"
-      app:rippleColor="@color/white_color"
-      app:layout_constraintStart_toEndOf="@+id/guideline"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintBottom_toBottomOf="parent"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_to_cart"
+        style="@style/Widget.AppTheme.DealButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_to_cart"
+        android:textColor="@color/white_color"
+        app:backgroundTint="@color/red_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:rippleColor="@color/white_color" />
 
-  <ProgressBar
-      android:id="@+id/pb_loading"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="32dp"
-      android:indeterminateTint="@color/red_color"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="parent"/>
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:indeterminateTint="@color/red_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
