@@ -1,18 +1,12 @@
 package com.target.targetcasestudy.ui.deal.detail
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 
 import com.target.targetcasestudy.R
 import com.target.targetcasestudy.data.Deal

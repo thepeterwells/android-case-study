@@ -8,15 +8,28 @@ import org.greenrobot.eventbus.EventBus
 import retrofit2.Call
 
 open class BaseService<TBody>() {
-   inline fun callAsync(crossinline call: () -> Call<TBody>, event: BaseEvent<TBody>) : Deferred<BaseEvent<TBody>> {
+
+   protected var call: Call<TBody>? = null
+
+   protected inline fun callAsync(crossinline call: () -> Call<TBody>, event: BaseEvent<TBody>) : Deferred<BaseEvent<TBody>> {
+       this.call = call()
         return GlobalScope.async {
-            event.response = call().execute()
-            event.isSuccess = event.response.code() in 200..299
-            if (!event.isSuccess) {
-                event.errorMessage = event.response.errorBody()?.string() ?: "Network Error"
+            event.response = this@BaseService.call!!.execute()
+            if (this@BaseService.call?.isCanceled != true) {
+                event.isSuccess = event.response.code() in 200..299
+                if (!event.isSuccess) {
+                    event.errorMessage = event.response.errorBody()?.string() ?: "Network Error"
+                }
+            } else {
+                event.cancelled = true
             }
+            this@BaseService.call = null
             EventBus.getDefault().postSticky(event)
             event
         }
+    }
+
+    fun cancelCall() {
+        call?.cancel()
     }
 }
