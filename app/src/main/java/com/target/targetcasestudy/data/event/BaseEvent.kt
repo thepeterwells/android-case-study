@@ -7,4 +7,5 @@ open class BaseEvent<TBody> {
     val data: TBody? get() = response.body()
     var isSuccess: Boolean = false
     var errorMessage: String? = null
+    var cancelled: Boolean = false
 }
