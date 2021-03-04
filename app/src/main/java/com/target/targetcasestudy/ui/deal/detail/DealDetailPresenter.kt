@@ -31,8 +31,6 @@ class DealDetailPresenter @Inject constructor(private val service: DealDetailSer
         view.toggleProgressVisibility(false)
         if (event.isSuccess && event.data != null) {
             view.bindDealData(event.data!!)
-        } else if (event.cancelled) {
-            println("cancelled")
         }
     }
 
